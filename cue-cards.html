@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uplift — Cue Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Karla:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241F2E; --soft:#554C63; --faint:#8B819B;
+    --paper:#FDF6EC; --panel:#FFF;
+    --violet:#6C4CD6; --gold:#F5B62E; --green:#3FA96B; --coral:#F2604C; --sky:#2FA8D8;
+    --line:2.5px solid var(--ink);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:2rem 1.25rem 4rem; background:var(--paper); color:var(--ink);
+    font-family:Karla,sans-serif; line-height:1.5;
+  }
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-family:Fraunces,serif;font-size:2.6rem;letter-spacing:-.03em;margin:0 0 .2rem}
+  .sub{font-family:"Space Mono",monospace;font-size:.8rem;color:var(--faint);margin-bottom:1.5rem}
+
+  .legend{
+    background:var(--panel);border:var(--line);border-radius:16px;padding:1rem 1.2rem;
+    margin-bottom:2rem;font-size:.9rem;box-shadow:4px 4px 0 var(--ink);
+  }
+  .legend b{font-family:"Space Mono",monospace;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+  .legend ul{margin:.5rem 0 0;padding-left:1.1rem}
+  .legend li{margin-bottom:.25rem}
+
+  .card{
+    background:var(--panel); border:var(--line); border-radius:20px;
+    padding:1.4rem 1.5rem; margin-bottom:1.4rem; box-shadow:5px 5px 0 var(--ink);
+    page-break-inside:avoid; break-inside:avoid;
+  }
+  .card[data-s="1"]{border-left:14px solid var(--gold)}
+  .card[data-s="2"]{border-left:14px solid var(--sky)}
+  .card[data-s="3"]{border-left:14px solid var(--green)}
+  .card[data-s="4"]{border-left:14px solid var(--violet)}
+
+  .card-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem}
+  .who{font-family:"Space Mono",monospace;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+       padding:.3em .8em;border:2px solid var(--ink);border-radius:999px}
+  .card[data-s="1"] .who{background:#FFF0CE}
+  .card[data-s="2"] .who{background:#D9F0FA}
+  .card[data-s="3"] .who{background:#DCF4E6}
+  .card[data-s="4"] .who{background:#EAE3FF}
+  .clock{font-family:"Space Mono",monospace;font-size:.8rem;font-weight:700;color:var(--violet)}
+
+  .card h2{font-family:Fraunces,serif;font-size:1.5rem;letter-spacing:-.02em;margin:0 0 .5rem}
+
+  .say{
+    background:#FFF0CE;border:2px dashed var(--ink);border-radius:12px;
+    padding:.8rem 1rem;margin:.6rem 0 .9rem;font-size:1.05rem;font-weight:600;
+  }
+  .say::before{content:"SAY THIS ";font-family:"Space Mono",monospace;font-size:.62rem;
+    letter-spacing:.14em;display:block;color:var(--soft);margin-bottom:.25rem;font-weight:700}
+
+  ul.beats{margin:.4rem 0 .8rem;padding-left:1.2rem}
+  ul.beats li{margin-bottom:.35rem}
+
+  .row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.8rem}
+  .tag{
+    font-family:"Space Mono",monospace;font-size:.68rem;font-weight:700;
+    padding:.35em .75em;border:2px solid var(--ink);border-radius:999px;background:#F7E9D7;
+  }
+  .tag.screen{background:#D9F0FA}
+  .tag.hand{background:#FFE1DB}
+
+  .warn{font-family:"Space Mono",monospace;font-size:.72rem;color:var(--coral);margin-top:.6rem;font-weight:700}
+
+  @media print{
+    body{background:#fff;padding:0}
+    .card{box-shadow:none;margin-bottom:.8rem}
+    .legend{box-shadow:none}
+    @page{margin:1.2cm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Uplift — cue cards</h1>
+<p class="sub">5 minutes total · 4 speakers · print this, or open it on a phone</p>
+
+<div class="legend">
+  <b>How to use these</b>
+  <ul>
+    <li>The boxed line is the <strong>only</strong> thing written out word for word — it's your opener, so you never stall at the start. Everything else is a prompt, not a script.</li>
+    <li>The rubric explicitly penalises reading from cards. Know your beats, then look up and talk.</li>
+    <li><strong>Driver:</strong> whoever isn't speaking runs the keyboard. Right arrow = next slide. <strong>T</strong> starts the timer on slide 1.</li>
+    <li>The clock time is where the timer should be when you <em>finish</em> your card.</li>
+  </ul>
+</div>
+
+<!-- ===================== SPEAKER 1 ===================== -->
+
+<div class="card" data-s="1">
+  <div class="card-top"><span class="who">Speaker 1 · Card 1</span><span class="clock">finish by 0:18</span></div>
+  <h2>Open it</h2>
+  <div class="say">"Put your hand up if you've ever had three things due in the same week."</div>
+  <ul class="beats">
+    <li>Wait. Actually wait — let hands go up before you say anything else.</li>
+    <li>"Keep it up if you told anyone how bad it got." <em>(far fewer hands — that's the point)</em></li>
+    <li>"That gap is what we're here about. We're [names], and this is Uplift."</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: title slide</span><span class="tag">Press T to start the timer</span></div>
+</div>
+
+<div class="card" data-s="1">
+  <div class="card-top"><span class="who">Speaker 1 · Card 2</span><span class="clock">finish by 0:55</span></div>
+  <h2>Run the live poll</h2>
+  <ul class="beats">
+    <li>Eyeball roughly what fraction of the room had their hand up. Click the nearest percentage on screen.</li>
+    <li>The room's bar fills. Then the national bar appears underneath it.</li>
+    <li>"That's this room. This is the country — 39% of young Australians say stress is hurting their mental health."</li>
+    <li>If your room is higher than 39%: <em>"we're above the national number."</em> If lower: <em>"and we're not even the worst of it."</em> Either way it lands.</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: poll slide</span><span class="tag">Click a % button</span></div>
+  <p class="warn">Don't count precisely. Nobody's checking. Move fast.</p>
+</div>
+
+<div class="card" data-s="1">
+  <div class="card-top"><span class="who">Speaker 1 · Card 3</span><span class="clock">finish by 1:22</span></div>
+  <h2>Two kinds of stress</h2>
+  <ul class="beats">
+    <li>"Not all stress is bad. There's a version that actually helps — it's called eustress."</li>
+    <li>Sharpens focus, builds confidence, <strong>ends when the task ends</strong>.</li>
+    <li>"The other kind never switches off. Same face from the outside. Completely different thing."</li>
+    <li>Killer line: "and it hides — marks can look fine for months while this builds underneath."</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: two faces</span><span class="tag hand">→ hand to Speaker 2</span></div>
+</div>
+
+<!-- ===================== SPEAKER 2 ===================== -->
+
+<div class="card" data-s="2">
+  <div class="card-top"><span class="who">Speaker 2 · Card 1</span><span class="clock">finish by 2:00</span></div>
+  <h2>Walk the model</h2>
+  <div class="say">"So how much pressure is too much? We built a model to find out."</div>
+  <ul class="beats">
+    <li>Left to right = how much work. Up = how well they're actually doing.</li>
+    <li>"A bit of work, they rise to it — standing taller."</li>
+    <li>"This is their peak. Every student has one."</li>
+    <li>Then the drop: <strong>"working harder, doing worse."</strong> Let that sit for a second.</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: the curve</span></div>
+</div>
+
+<div class="card" data-s="2">
+  <div class="card-top"><span class="who">Speaker 2 · Card 2</span><span class="clock">finish by 2:28</span></div>
+  <h2>The turn — this is your big moment</h2>
+  <ul class="beats">
+    <li>"Now watch what happens when we add support."</li>
+    <li>The whole curve lifts. The peak slides right.</li>
+    <li>"Same student. Same workload. They can carry more before anything breaks."</li>
+    <li><strong>"We can't delete the deadlines. But we can move the tipping point."</strong> — pause after this.</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: support added</span></div>
+  <p class="warn">This is the single most important sentence in the whole presentation. Slow down.</p>
+</div>
+
+<div class="card" data-s="2">
+  <div class="card-top"><span class="who">Speaker 2 · Card 3</span><span class="clock">finish by 2:58</span></div>
+  <h2>The evidence</h2>
+  <ul class="beats">
+    <li>39% — stress hurting their mental health. <em>Mission Australia Youth Survey, 2025.</em></li>
+    <li>49% — in high or very high psychological distress. <em>headspace, last October.</em></li>
+    <li>Only 1 in 5 who needed help actually went to a counsellor.</li>
+    <li>"So the help exists. Students just aren't using it."</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: three numbers</span><span class="tag hand">→ hand to Speaker 3</span></div>
+  <p class="warn">Say at least one source out loud. That's a rubric mark.</p>
+</div>
+
+<!-- ===================== SPEAKER 3 ===================== -->
+
+<div class="card" data-s="3">
+  <div class="card-top"><span class="who">Speaker 3 · Card 1</span><span class="clock">finish by 3:28</span></div>
+  <h2>It's a system, not a list</h2>
+  <div class="say">"Here's why this is hard to fix — it doesn't come from one place."</div>
+  <ul class="beats">
+    <li><strong>You</strong> — perfectionism, fear of failing.</li>
+    <li><strong>School</strong> — three things due the same week.</li>
+    <li><strong>Home</strong> — success defined as one number.</li>
+    <li><strong>Mates</strong> — everyone posts the mark, nobody posts the struggle.</li>
+    <li>Then the loop: "pressure makes you do worse, doing worse makes you more scared, being scared adds pressure."</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: four sources + loop</span></div>
+</div>
+
+<div class="card" data-s="3">
+  <div class="card-top"><span class="who">Speaker 3 · Card 2</span><span class="clock">finish by 3:52</span></div>
+  <h2>Who it hits, who can fix it</h2>
+  <ul class="beats">
+    <li><strong>Affected:</strong> students — especially high achievers, the hidden-risk group.</li>
+    <li><strong>Enabling:</strong> wellbeing staff, student leadership, the Principal.</li>
+    <li><strong>Both:</strong> teachers and parents. "They feel it, and they set it — that's what makes them the most important people to bring along."</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: stakeholders</span><span class="tag hand">→ hand to Speaker 4</span></div>
+</div>
+
+<!-- ===================== SPEAKER 4 ===================== -->
+
+<div class="card" data-s="4">
+  <div class="card-top"><span class="who">Speaker 4 · Card 1</span><span class="clock">finish by 4:22</span></div>
+  <h2>What Uplift actually is</h2>
+  <div class="say">"Trained senior students, running six weeks of short sessions for younger years."</div>
+  <ul class="beats">
+    <li>Each session: <strong>one practical strategy</strong> + <strong>one honest conversation</strong>.</li>
+    <li>Why it works: study skills cut stress, and near-peers get through where adults don't — trained student leaders got friends to an adult <strong>four times more often</strong>.</li>
+    <li>"Right now those two things happen in different rooms. We put them in the same one."</li>
+    <li>Launch is an assembly where seniors tell the truth about their own stress.</li>
+    <li>Each group trains the next one — so it survives us leaving.</li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: the plan</span></div>
+</div>
+
+<div class="card" data-s="4">
+  <div class="card-top"><span class="who">Speaker 4 · Card 2</span><span class="clock">finish by 4:45</span></div>
+  <h2>And we'll prove it</h2>
+  <ul class="beats">
+    <li>Same validated survey week 1 and week 6 — the ESSA stress scale.</li>
+    <li>Plus the Distress–Eustress Scale, which is Australian and separates good pressure from harm.</li>
+    <li>Attendance, help-seeking, and how many weeks have three-plus tasks due.</li>
+    <li><strong>"These are targets, not results. Uplift hasn't run yet. If the numbers don't move, we change the sessions."</strong></li>
+  </ul>
+  <div class="row"><span class="tag screen">Screen: measurement</span></div>
+  <p class="warn">Saying "targets, not results" out loud is worth marks. Don't skip it.</p>
+</div>
+
+<div class="card" data-s="4">
+  <div class="card-top"><span class="who">Speaker 4 · Card 3</span><span class="clock">finish by 5:00</span></div>
+  <h2>Land it</h2>
+  <ul class="beats">
+    <li>"At the start we asked who'd had three things due in one week. Most of you."</li>
+    <li>"Then we asked who told someone. Almost nobody."</li>
+  </ul>
+  <div class="say">"We can't delete the deadlines. But we can make sure nobody carries them on their own."</div>
+  <ul class="beats"><li>Then stop talking. Don't add anything. Let it end there.</li></ul>
+  <div class="row"><span class="tag screen">Screen: closing slide</span></div>
+</div>
+
+</div>
+</body>
+</html>
