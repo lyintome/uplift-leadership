@@ -64,7 +64,9 @@
 
   window.mountMainPoll = function () {
     const host = $("#main-poll-buttons");
-    if (!host || !window.UPLIFT || !UPLIFT.poll) return;
+    if (!host || host.dataset.built === "1") return;   // never build twice
+    if (!window.UPLIFT || !UPLIFT.poll) return;
+    host.dataset.built = "1";
     const p = UPLIFT.poll;
 
     p.buckets.forEach((b) => {
@@ -88,4 +90,12 @@
       host.appendChild(btn);
     });
   };
+
+  /* This file owns the poll, so it mounts it itself rather than waiting to be
+     called from main.js. The guard above makes a double call harmless. */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", window.mountMainPoll);
+  } else {
+    window.mountMainPoll();
+  }
 })();
