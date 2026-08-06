@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uplift — Script</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<style>
+  body{padding-bottom:5rem}
+
+  .head{padding:2.5rem var(--gut) 1.5rem;border-bottom:var(--line)}
+  .head h1{font-size:var(--step-3);margin-bottom:.2rem}
+  .head p{margin:0}
+
+  .wrap{width:min(100% - (var(--gut)*2), 860px);margin-inline:auto;padding-top:2rem}
+
+  .howto{
+    background:var(--paper-panel);border:var(--line);border-radius:var(--radius-lg);
+    box-shadow:var(--pop);padding:1.4rem 1.5rem;margin-bottom:2.5rem;
+  }
+  .howto h2{font-size:var(--step-1);margin-bottom:.6rem}
+  .howto ul{margin:0;padding-left:1.2rem}
+  .howto li{margin-bottom:.4rem;font-size:var(--step--1)}
+
+  /* --- speaker block ------------------------------------------------- */
+  .spk{margin-bottom:2.5rem}
+
+  .spk-bar{
+    display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;
+    padding:.7rem 1.1rem;border:var(--line);border-radius:999px;
+    box-shadow:var(--pop-sm);margin-bottom:.5rem;
+  }
+  .spk[data-s="1"] .spk-bar{background:var(--gold-wash)}
+  .spk[data-s="2"] .spk-bar{background:var(--sky-wash)}
+  .spk[data-s="3"] .spk-bar{background:var(--green-wash)}
+  .spk[data-s="4"] .spk-bar{background:var(--violet-wash)}
+
+  .spk-name{font-family:var(--mono);font-weight:700;font-size:var(--step-0);letter-spacing:.1em;text-transform:uppercase}
+  .spk-time{font-family:var(--mono);font-weight:700;font-size:var(--step--1);color:var(--violet)}
+  .spk-slides{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--violet);margin:1.4rem 0 .8rem;padding-bottom:.4rem;
+    border-bottom:2px dashed var(--haze)}
+
+  /* --- spoken line ---------------------------------------------------- */
+  .line{
+    font-family:var(--display);font-size:clamp(1.1rem,2.2vw,1.35rem);
+    font-variation-settings:"SOFT" 100,"WONK" 1;
+    line-height:1.45;margin:0 0 .9rem;padding:.2rem 0 .2rem 1.1rem;
+    border-left:6px solid var(--violet);max-width:none;
+  }
+  .spk[data-s="1"] .line{border-left-color:var(--gold)}
+  .spk[data-s="2"] .line{border-left-color:var(--sky)}
+  .spk[data-s="3"] .line{border-left-color:var(--green)}
+  .spk[data-s="4"] .line{border-left-color:var(--violet)}
+
+  .line strong{background-image:linear-gradient(var(--hl-gold),var(--hl-gold));
+    background-repeat:no-repeat;background-size:100% .62em;background-position:0 .62em;font-weight:700}
+
+  /* --- stage direction ------------------------------------------------ */
+  .do{
+    font-family:var(--hand);font-size:clamp(1.1rem,2.2vw,1.45rem);
+    color:var(--coral);margin:0 0 1rem 1.1rem;max-width:none;
+  }
+  .do::before{content:"→ "}
+
+  /* --- Q&A ------------------------------------------------------------ */
+  .qa{background:var(--paper-panel);border:var(--line);border-radius:var(--radius-lg);
+    box-shadow:var(--pop);padding:1.5rem;margin-top:1rem}
+  .qa h2{font-size:var(--step-2);margin-bottom:.8rem}
+  .qa dt{font-weight:700;color:var(--violet);margin-top:1rem}
+  .qa dd{margin:.2rem 0 0}
+
+  @media print{
+    body{background:#fff;background-image:none}
+    .howto,.qa{box-shadow:none}
+    .spk-bar{box-shadow:none}
+    .spk{page-break-inside:avoid}
+    @page{margin:1.4cm}
+  }
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap" style="padding-top:0">
+    <span class="zone" data-zone="recovery">Uplift · Westbourne Grammar</span>
+    <h1>The script</h1>
+    <p class="mono-note">5 minutes · 4 speakers · every spoken word written out</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="howto">
+  <h2>How to use this</h2>
+  <ul>
+    <li><strong>We present off the website itself.</strong> Press <strong>P</strong> to move to the next section, <strong>O</strong> to go back. Whoever isn't speaking drives.</li>
+    <li>Everything in the <strong>large type with a coloured bar</strong> is spoken word for word.</li>
+    <li>The <span style="font-family:var(--hand);color:var(--coral)">handwritten red lines</span> are things you do, not things you say.</li>
+    <li>Learn it well enough to look up. The rubric marks you down for reading, so rehearse from this and take a stripped-back version up with you.</li>
+  </ul>
+</div>
+
+<section class="spk" data-s="1">
+  <div class="spk-bar"><span class="spk-name">Speaker 1</span><span class="spk-time">0:00 &ndash; 1:22</span></div>
+  <p class="spk-slides">On screen &middot; the title &mdash; top of the page</p>
+  <p class="line">Before we start &mdash; hands up if you've had three or more things due in the same week this term.</p>
+  <p class="do">Wait. Actually wait, until hands are up.</p>
+  <p class="line">Now keep your hand up if you told a teacher, or your parents, how bad it actually got.</p>
+  <p class="do">Most hands drop. Let that sit for a second.</p>
+  <p class="line">That gap is what our project is about. I'm [name], this is [name], [name] and [name], and we're presenting Uplift.</p>
+  <p class="spk-slides">On screen &middot; press P &mdash; the poll</p>
+  <p class="do">Guess roughly what fraction of the room had a hand up. Click the nearest percentage.</p>
+  <p class="line">That's this room. And this is the country. Thirty-nine percent of young Australians say stress is affecting their mental health &mdash; that's the Mission Australia Youth Survey, from a sample of over seventeen thousand students.</p>
+  <p class="spk-slides">On screen &middot; press P &mdash; the issue</p>
+  <p class="line">But here's what we got wrong when we started. We assumed all stress was bad. It isn't. Researchers call the useful kind eustress. It sharpens your focus, it builds confidence, and it stops when the task stops. Everybody needs some of it.</p>
+  <p class="line">The problem is the other kind &mdash; the kind that never switches off. And from the outside, the two look identical. That's why it gets missed. Someone's marks can hold steady for months while they quietly fall apart underneath, which is why the students staff worry about last are often the ones struggling most.</p>
+  <p class="do">Hand over to Speaker 2.</p>
+</section>
+
+<section class="spk" data-s="2">
+  <div class="spk-bar"><span class="spk-name">Speaker 2</span><span class="spk-time">1:22 &ndash; 2:58</span></div>
+  <p class="spk-slides">On screen &middot; press P &mdash; the model. It starts playing on its own.</p>
+  <p class="line">So how much pressure is too much? We built a model to answer that.</p>
+  <p class="line">Left to right is how much work she's carrying. Up is how well she's actually doing. Right now almost nothing is being asked of her, so the line is flat. That isn't calm &mdash; that's boredom.</p>
+  <p class="line">Add some work, and she rises to it. She's standing taller. This is the good kind of stress.</p>
+  <p class="line">This is her peak. Every student has one.</p>
+  <p class="line">And then it tips. More gets piled on, and she starts going backwards. Watch the line &mdash; it's falling. She is working harder and doing worse. That's the part people miss. The pressure that's supposed to lift your results ends up lowering them.</p>
+  <p class="line">Now watch what happens when we add support.</p>
+  <p class="do">Pause. Let the curve finish lifting before you say anything.</p>
+  <p class="line">Same student. Same amount of work. The whole curve lifts, and her peak slides further right. She can carry more before anything breaks.</p>
+  <p class="line"><strong>We can't delete the deadlines. But we can move the tipping point.</strong></p>
+  <p class="do">Pause. This is the central sentence of the whole presentation.</p>
+  <p class="do">If the model runs ahead of you, drag the support slider back yourself &mdash; or hit Replay.</p>
+  <p class="spk-slides">On screen &middot; press P &mdash; the evidence</p>
+  <p class="line">And this is not a rare problem. Forty-nine percent of young Australians are in high or very high psychological distress &mdash; that's headspace, in October. And of the students who knew they needed help, only one in five actually went to a counsellor.</p>
+  <p class="do">Hand over to Speaker 3.</p>
+</section>
+
+<section class="spk" data-s="3">
+  <div class="spk-bar"><span class="spk-name">Speaker 3</span><span class="spk-time">2:58 &ndash; 3:52</span></div>
+  <p class="spk-slides">On screen &middot; press P &mdash; the causes</p>
+  <p class="line">So why hasn't this been fixed already? Because it isn't one problem.</p>
+  <p class="line">It comes from four places at once. You &mdash; perfectionism, and fear of failing. School &mdash; three things due in the same week. Home &mdash; where success gets defined as one number. And your mates, where everyone posts the mark and nobody posts the meltdown, so everyone privately decides they're the only one drowning.</p>
+  <p class="line">And it feeds itself. Pressure makes you do worse. Doing worse makes you more afraid. Being afraid adds more pressure. Round and round.</p>
+  <p class="line">That's why fixing one piece never works.</p>
+  <p class="spk-slides">On screen &middot; press P &mdash; stakeholders</p>
+  <p class="line">The people affected are students &mdash; especially high achievers, who are the hidden risk here. The people who can actually enable a fix are the wellbeing staff, student leadership, and the Principal. But teachers and parents are both. They feel this, and they set it. That's exactly what makes them the most important people to bring with us.</p>
+  <p class="do">Hand over to Speaker 4.</p>
+</section>
+
+<section class="spk" data-s="4">
+  <div class="spk-bar"><span class="spk-name">Speaker 4</span><span class="spk-time">3:52 &ndash; 5:00</span></div>
+  <p class="spk-slides">On screen &middot; press P &mdash; the plan</p>
+  <p class="line">So here's Uplift. Trained senior students run six weeks of short sessions for younger year levels. Each session does two things &mdash; one practical strategy, like planning or breaking work down, and one honest conversation.</p>
+  <p class="line">Both halves are backed by research. Study skills training measurably cuts academic stress. And near-peers get through where adults don't &mdash; in one controlled trial, trained student leaders got friends to a trusted adult four times more often than untrained students did.</p>
+  <p class="line">Right now those two things happen in separate rooms, taught by adults, to students who have already decided the problem is theirs alone. We put them in the same room, led by someone two years older who says out loud that they found it hard too.</p>
+  <p class="line">Wellbeing staff train the leaders, so nobody is ever asked to be a counsellor. It launches with an assembly where seniors tell the truth about their own stress. And every group trains the next one, so it keeps running after we leave.</p>
+  <p class="spk-slides">On screen &middot; press P &mdash; how we'll know it worked. This is the last section.</p>
+  <p class="line">And we'll prove whether it works. The same validated survey in week one and week six. <strong>These are targets, not results</strong> &mdash; Uplift hasn't run yet. If the numbers don't move, we change the sessions.</p>
+  <p class="line">At the start we asked who'd had three things due in one week. Most of you put your hand up. Then we asked who told someone. Almost nobody did.</p>
+  <p class="line"><strong>We can't delete the deadlines. But we can make sure nobody carries them on their own.</strong></p>
+  <p class="do">Stop there. Don't add anything.</p>
+</section>
+
+<!-- ================= Q&A ================= -->
+<div class="qa">
+  <h2>If someone asks a question</h2>
+  <dl>
+    <dt>Isn't this just peer mentoring?</dt>
+    <dd>Peer mentoring is usually general wellbeing. Ours is specifically about academic pressure, and every session pairs a practical study strategy with the conversation. That combination is the part that doesn't currently exist.</dd>
+
+    <dt>What if a peer leader can't handle it?</dt>
+    <dd>They're never asked to. Training sets a hard line and names the staff member to hand over to, sessions are supervised, and referring someone up is treated as the program working, not failing.</dd>
+
+    <dt>How is this different from the counsellor?</dt>
+    <dd>It isn't a replacement — it's the step before. Only one in five students who need help actually go. We're trying to reach the other four, and get them to the counsellor when they need it.</dd>
+
+    <dt>Where does the time come from?</dt>
+    <dd>Six weeks, thirty to forty minutes. That fits an existing pastoral slot rather than needing a new one, and the research says short and regular is the most effective shape anyway.</dd>
+
+    <dt>What if it doesn't work?</dt>
+    <dd>Then we'll know, because we're measuring it with the same validated survey before and after. If the numbers don't move, we change the sessions.</dd>
+
+    <dt>Why students and not teachers?</dt>
+    <dd>Because that's the whole point. Only one in five students who needed help went to an adult. Trained student leaders got friends to an adult four times more often than untrained students. The near-peer part isn't decoration &mdash; it's the mechanism.</dd>
+  </dl>
+</div>
+
+</div>
+</body>
+</html>
