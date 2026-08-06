@@ -1,0 +1,151 @@
+/* ==========================================================================
+   UPLIFT — Base layer (v2)
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  /* Exercise-book ruling. On theme, and it stops the page feeling like a slide. */
+  background-image: linear-gradient(to bottom, var(--rule-blue) 1.5px, transparent 1.5px);
+  background-size: 100% 2.4rem;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+p { margin: 0 0 .9em; max-width: 60ch; text-wrap: pretty; }
+a { color: var(--violet); text-underline-offset: 3px; }
+
+:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; border-radius: 6px; }
+img, canvas { display: block; max-width: 100%; }
+
+/* --- Layout ------------------------------------------------------------ */
+
+.shell { width: min(100% - (var(--gut) * 2), 1200px); margin-inline: auto; }
+
+.panel { padding-block: var(--stack); position: relative; }
+.panel--tint { background: var(--paper-deep); }
+
+.panel--violet {
+  background: var(--violet-deep);
+  color: #F0EAFF;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,.05) 1.5px, transparent 1.5px);
+  background-size: 100% 2.4rem;
+}
+.panel--violet h2, .panel--violet h3, .panel--violet h4 { color: #FFF; }
+.panel--violet p { color: #D6CBF5; }
+
+/* --- Highlighter marker behind text ------------------------------------ */
+
+.hl {
+  background-image: linear-gradient(var(--hl-gold), var(--hl-gold));
+  background-repeat: no-repeat;
+  background-size: 100% .62em;
+  background-position: 0 .62em;
+  padding: 0 .1em;
+}
+.hl--green  { background-image: linear-gradient(var(--hl-green), var(--hl-green)); }
+.hl--coral  { background-image: linear-gradient(var(--hl-coral), var(--hl-coral)); }
+.hl--violet { background-image: linear-gradient(var(--hl-violet), var(--hl-violet)); }
+
+.hl-swipe { background-size: 0% .62em; transition: background-size .7s var(--ease-out) .15s; }
+.hl-swipe.is-in { background-size: 100% .62em; }
+
+/* --- Sticker eyebrow ---------------------------------------------------- */
+
+.zone {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .4em .9em;
+  border: var(--line);
+  border-radius: 999px;
+  background: var(--paper-panel);
+  box-shadow: var(--pop-sm);
+  transform: rotate(-1.6deg);
+  margin-bottom: 1.2rem;
+  color: var(--ink);
+}
+.zone[data-zone="healthy"]  { background: var(--green-wash); }
+.zone[data-zone="tipping"]  { background: var(--gold-wash); }
+.zone[data-zone="distress"] { background: var(--coral-wash); }
+.zone[data-zone="recovery"] { background: var(--violet-wash); }
+
+/* --- Handwritten annotation -------------------------------------------- */
+
+.scrawl {
+  font-family: var(--hand);
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  line-height: 1.25;
+  color: var(--violet);
+  transform: rotate(-2deg);
+  display: inline-block;
+  max-width: 30ch;
+}
+.panel--violet .scrawl { color: var(--gold); }
+
+.lede { font-size: var(--step-1); line-height: 1.42; color: var(--ink-soft); max-width: 44ch; }
+.panel--violet .lede { color: #D6CBF5; }
+
+/* --- Reveal ------------------------------------------------------------ */
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* --- Buttons ----------------------------------------------------------- */
+
+.btn {
+  font-family: var(--body);
+  font-size: var(--step-0);
+  font-weight: 700;
+  padding: .7em 1.4em;
+  border-radius: 999px;
+  border: var(--line);
+  background: var(--gold);
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: var(--pop);
+  transition: transform .16s var(--ease), box-shadow .16s var(--ease);
+}
+.btn:hover  { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(2px,2px);  box-shadow: 1px 1px 0 var(--ink); }
+
+.btn--ghost { background: var(--paper-panel); }
+.btn--violet { background: var(--violet); color: #FFF; }
+
+/* --- Utility ----------------------------------------------------------- */
+
+.mono-note { font-family: var(--mono); font-size: var(--step--1); color: var(--ink-faint); line-height: 1.5; }
+.panel--violet .mono-note { color: #A99BD0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hl-swipe { background-size: 100% .62em; transition: none; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
